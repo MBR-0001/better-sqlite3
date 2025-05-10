@@ -30,4 +30,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - run: npm install --ignore-scripts
-      - run: ${{ env.NODE_BUILD_CMD }} -u ${{ secrets.GITHUB_TOKEN }}
+      - run: ${{ env.NODE_BUILD_CMD }}
+      - uses: actions/upload-artifact@v4
+        with:
+          name: build
+          path: prebuilds
+          if-no-files-found: error
+          retention-days: 7
