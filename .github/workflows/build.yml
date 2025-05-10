@@ -115,7 +115,6 @@ jobs:
           ${{ env.ELECTRON_BUILD_CMD }} --arch arm64 -u ${{ secrets.GITHUB_TOKEN }}
 
   prebuild-linux-x64:
-    if: ${{ github.event_name == 'release' }}
     name: Prebuild on Linux x64
     runs-on: ubuntu-latest
     container: node:20-bullseye
